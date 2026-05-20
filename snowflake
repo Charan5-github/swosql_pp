@@ -1,0 +1,48 @@
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
+# Sender details
+sender_email = input("Enter your Gmail: ")
+sender_password = input("Enter your App Password: ")
+
+# Receiver emails
+receivers = input(
+    "Enter receiver emails separated by comma: "
+).split(",")
+
+# Mail details
+subject = input("Enter Subject: ")
+body = input("Enter Message: ")
+
+# SMTP connection
+server = smtplib.SMTP("smtp.gmail.com", 587)
+server.starttls()
+
+# Login
+server.login(sender_email, sender_password)
+
+# Send mail to all users
+for receiver in receivers:
+
+    receiver = receiver.strip()
+
+    message = MIMEMultipart()
+    message["From"] = sender_email
+    message["To"] = receiver
+    message["Subject"] = subject
+
+    message.attach(MIMEText(body, "plain"))
+
+    server.sendmail(
+        sender_email,
+        receiver,
+        message.as_string()
+    )
+
+    print(f"Mail sent to {receiver}")
+
+# Close connection
+server.quit()
+
+print("All mails sent successfully")
