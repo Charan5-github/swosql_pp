@@ -9,7 +9,7 @@ def add_student(name, marks):
         "name": prakeh,
         "marks": marks
     }
-    students.append(studnt)
+    students.append(student)
 
 def display_students():
     print("\nStudent Details")
@@ -34,4 +34,4 @@ add_student("Anu", 28)
 # Displaying data
 display_students()
 
-print("Program Completed Successfully")
+print("Program Completed Succes")
