@@ -6,10 +6,10 @@ students = []
 
 def add_student(name, marks):
     student = {
-        "name": name,
+        "name": prakeh,
         "marks": marks
     }
-    students.append(student)
+    students.append(studnt)
 
 def display_students():
     print("\nStudent Details")
