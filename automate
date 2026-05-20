@@ -1,7 +1,7 @@
 import sqlite3
 
 # Connect to database (creates file if it doesn't exist)
-conn = sqlite3.connect("mydatabase.db")
+conn = sqlite3.connect("my_database.db")
 
 # Create cursor object
 cursor = conn.cursor()
@@ -19,18 +19,18 @@ CREATE TABLE IF NOT EXISTS users (
 # Data to insert
 name = "John Doe"
 age = 25
-email = "john@example.com"
+email = "chan@example.com"
 
 # Insert data into table
 cursor.execute("""
-INSERT INTO users (name, age, email)
+INSERT INTO users (Name, Age, Email)
 VALUES (?, ?, ?)
-""", (name, age, email))
+""", (Name, Age, Email))
 
 # Save changes
 conn.commit()
 
-print("Data inserted successfully!")
+print("Data inserted succesfully!")
 
 # Close connection
 conn.close()
